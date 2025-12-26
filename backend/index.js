@@ -1,8 +1,11 @@
-console.log("ActionSync backend running");
 const express = require("express");
 const app = express();
 
 app.use(express.json());
+
+const processMeetingRoute = require("./routes/processMeeting");
+app.use("/api", processMeetingRoute);
+
 
 app.get("/health", (req, res) => {
   res.json({ status: "ok" });
